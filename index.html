@@ -1,71 +1,193 @@
+
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
+    <head>
+    <link rel="stylesheet" href="style.css">
+</head>
 <head>
-<title>Kurt C Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KC - Personal Website</title>
     <style>
-        .section {
-            background-color: lightgreen; /* Internal CSS */
-        }
-        .site-header {
-            background: black;
-            color: white;
-            padding: 14px 20px;
-        }
-
-        .header-inner {
-            display: flex;
-            align-items: center;      /* vertically centered */
-            justify-content: space-between; /* title left, nav right */
-            gap: 16px;
-        }
-
-        .site-title {
+        /* Reset CSS */
+        * {
+            box-sizing: border-box;
             margin: 0;
-            font-size: 2.5rem; /* 2-3x larger than nav buttons */
-            line-height: 1.1;
+            padding: 0;
         }
-
-        .nav {
+        
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 1em 2em;
             display: flex;
-            gap: 10px;
+            justify-content: space-between;
             align-items: center;
+            position: relative;
         }
-
-        .nav-btn {
-            display: inline-block;
-            color: white;
+        
+        header h2 {
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+        }
+        
+        .menu {
+            display: none;
+        }
+        
+        .menu-icon {
+            display: none;
+            font-size: 2em;
+            cursor: pointer;
+        }
+        
+        header nav {
+            margin-left: auto; /* Pushes the nav links to the right */
+        }
+        
+        header nav a {
+            color: #fff;
             text-decoration: none;
-            background: #222;
-            border: 1px solid #444;
-            padding: 8px 12px;
-            border-radius: 6px;
-    
-            font-size: 1rem; /* smaller than title */
+            margin: 0 1em;
+            font-weight: bold;
+        }
+        
+        header nav a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Main Content Styles */
+        main {
+            padding: 1em;
+        }
+        
+        .section-title {
+            font-size: 2em;
+            margin-bottom: 1em;
+            color: #333;
+        }
+        
+        .section-content {
+            text-align: center;
+            margin-bottom: 2em;
+        }
+        
+        .cv-link {
+            display: inline-block;
+            padding: 1em 2em;
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .cv-link:hover {
+            background-color: #333;
         }
 
-        .nav-btn:hover {
-            background: #333;
+        /* Right-align text */
+        .justify-align {
+            text-align: justify;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            header nav {
+                display: none;
+                flex-direction: column;
+                background-color: #000;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding: 1em 0;
+            }
+            
+            header nav a {
+                margin: 1em 0;
+                text-align: center;
+                display: block;
+            }
+            
+            .menu-icon {
+                display: block;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .menu {
+                display: flex;
+            }
         }
     </style>
-
 </head>
-<header class="site-header">
-    <div class="header-inner">
-        <h1 class="site-title">Kurt Cantrell</h1>
-
-        <nav class="nav">
-            <a class="nav-btn" href="#about">About</a>
-        </nav>
-    </div>
-</header>
 <body>
-    <section>
-        <div class="section" style="background-color: lightblue;"> <!-- Inline CSS -->
-            <h1 id="about">About Me</h1>
-            <p>Radiation Effects PhD Student at Vanderbilt University</p>
-        </div>
-    </section>
+    <header>
+        <h2>Kurt Cantrell</h2>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <nav class="menu">
+            <a href="#aboutme">About Me</a>
+            <a href="#publications">Publications</a>
+        </nav>
+    </header>
+    <main>
+        <section id="aboutme">
+            <div class="section-content">
+                <h2 class="section-title">About Me</h2>
+                <p class="justify-align">
+                    Radiation effects on microelectronics. LinkedIn: <a href="https://www.linkedin.com/in/kurtcantrell" target="_blank">LinkedIn</a>.
+                </p>
+            </div>
+        </section>
+        <section id="publications">
+            <div class="section-content">
+                <h2 class="section-title">Publications</h2>
+                <div class="publication-grid">
+                    <div class="publication-item">
+                    
+                        1.  K. B. Cantrell, J. Jerabek, J. Koton and T. J. Freeborn, "</strong>Fractional-Order Immitance Converter (FGIC44) Performance Using Wideband Fractional-Order Element Seeds,</strong>" SoutheastCon 2024, doi: 10.1109/SoutheastCon52093.2024.10500206.
+                    </div>
+                    <div class="publication-item">
+                        
+                        2.	K. Cantrell, "<strong>Analysis of Timing Behavior for Wireless Synchronization of Bioimpedance Analog Front End Sensors,<strong>" The University of Alabama, 2025.
+                    
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        function toggleMenu() {
+            var menu = document.querySelector('.menu');
+            if (menu.style.display === 'block' || menu.style.display === '') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'block';
+            }
+        }
 
+        window.addEventListener('resize', function() {
+            var menu = document.querySelector('.menu');
+            if (window.innerWidth >= 769) {
+                menu.style.display = 'flex';
+            } else {
+                menu.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
 </body>
 </html>

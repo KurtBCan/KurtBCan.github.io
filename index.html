@@ -12,6 +12,20 @@
             color: white;
             padding: 16px;   /* optional */
         }
+        .site-header .nav a {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            background: #222;
+            border: 1px solid #444;
+            padding: 8px 12px;
+            margin-right: 10px;
+            border-radius: 6px;
+        }
+
+        .site-header .nav a:hover {
+            background: #333;
+        }
     </style>
 
 </head>
@@ -22,9 +36,9 @@
     </div>
 </header>
 <body>
-    <section id="about">
+    <section>
         <div class="section" style="background-color: lightblue;"> <!-- Inline CSS -->
-            <h1>About Me</h1>  
+            <h1 id="about">About Me</h1>
             <p>Radiation Effects PhD Student at Vanderbilt University</p>
         </div>
     </section>
